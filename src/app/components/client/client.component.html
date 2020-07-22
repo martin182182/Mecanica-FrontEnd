@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Clientes</h2>
+  <ul>
+    <li *ngFor="let client of clients | paginate:{itemsPerPage: 3, currentPage: p}">
+      Nombre<br>
+      {{client.name}}<br>
+      Cedula<br>
+      {{client.ci}}<br>
+      Direccion<br>
+      {{client.direc}}<br><hr><br>
+    </li>
+  </ul>
+  <pagination-controls (pageChange) ="p = $event"></pagination-controls>
+</div>

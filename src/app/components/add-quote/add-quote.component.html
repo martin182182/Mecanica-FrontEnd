@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>{{title}}</h2>
+  <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
+    <p>
+      <label for="name">Nombre</label>
+      <input type="text" name="name" #name="ngModel" [(ngModel)]="client.name" required>
+      <span class="formError" *ngIf="name.touched&&!name.valid">El nombre es obligatorio</span>
+    </p>
+    <p>
+      <label for="ci">Cedula</label>
+      <input type="text" name="ci" #ci="ngModel" [(ngModel)]="client.ci" required>
+      <span class="formError" *ngIf="ci.touched&&!ci.valid">La cedula es obligatoria</span>
+    </p>
+    <p>
+      <label for="direccion">Direccion</label>
+      <input type="text" name="direccion" #direc="ngModel" [(ngModel)]="client.direc" required>
+      <span class="formError" *ngIf="direc.touched&&!direc.valid">La direccion es obligatoria</span>
+    </p>
+    <input type="submit" value="Agregar" [disabled]="!clientForm.form.valid">
+  </form>
+</div>
